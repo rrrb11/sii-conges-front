@@ -1,1 +1,90 @@
-<p>textfield works!</p>
+<div *ngIf="inputBorder === 'underlined'" class="w-full flex flex-col my-4" [formGroup]="inputForm">
+  <div class="w-full flex flex-row items-center px-1">
+    <mat-icon
+      *ngIf="prefixIcon"
+      class="prefix-icon mr-2 text-primary"
+      aria-hidden="false"
+      >{{ prefixIcon }}</mat-icon
+    >
+    <div class="flex flex-1 justify-center items-center">
+      <input
+        *ngIf="type === 'text'"
+        [id]="inputId"
+        [formControlName]="inputId"
+        [type]="type"
+        required
+        [placeholder]="placeholder !== undefined ? placeholder : ''"
+        class="outline-none w-full"
+      />
+      <input
+        *ngIf="type === 'password'"
+        [id]="inputId"
+        [formControlName]="inputId"
+        [type]="hide ? 'password' : 'text'"
+        required
+        [placeholder]="placeholder !== undefined ? placeholder : ''"
+        class="outline-none w-full"
+      />
+    </div>
+    <mat-icon
+      *ngIf="type === 'password'"
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      class="suffix-icon cursor-pointer text-primary ml-1"
+      aria-hidden="false"
+      >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+    >
+    <mat-icon
+      *ngIf="suffixIcon && type !== 'password'"
+      class="suffix-icon text-primary ml-1"
+      aria-hidden="false"
+      >{{ suffixIcon }}</mat-icon
+    >
+  </div>
+  <span class="mt-0.5 border border-gray-300"></span>
+</div>
+
+<div *ngIf="inputBorder === 'outlined'" class="w-full flex flex-col" [formGroup]="inputForm">
+  <div
+    class="flex flex-1 justify-center items-center border border-gray-300 rounded-lg px-1"
+  >
+    <mat-icon
+      *ngIf="prefixIcon"
+      class="prefix-icon mr-1 text-primary"
+      aria-hidden="false"
+      >{{ prefixIcon }}</mat-icon
+    >
+    <input
+      *ngIf="type === 'text'"
+      class="flex-1 p-1 rounded-lg outline-none"
+      [id]="inputId"
+      [formControlName]="inputId"
+      [type]="type"
+      [placeholder]="placeholder !== undefined ? placeholder : ''"
+      required
+    />
+    <input
+      *ngIf="type === 'password'"
+      class="flex-1 p-1 rounded-lg outline-none"
+      [id]="inputId"
+      [formControlName]="inputId"
+      [type]="hide ? 'password' : 'text'"
+      [placeholder]="placeholder !== undefined ? placeholder : ''"
+      required
+    />
+    <mat-icon
+      *ngIf="type === 'password'"
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      class="suffix-icon cursor-pointer text-primary"
+      aria-hidden="false"
+      >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+    >
+    <mat-icon
+      *ngIf="suffixIcon && type !== 'password'"
+      class="suffix-icon text-primary"
+      aria-hidden="false"
+      >{{ suffixIcon }}</mat-icon
+    >
+  </div>
+</div>

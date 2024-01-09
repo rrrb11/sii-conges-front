@@ -1,0 +1,34 @@
+<div class="size-full flex justify-center items-center bg-gray-100">
+  <div
+    class="bg-white border border-gray-300 rounded-xl p-10 flex items-center flex-col gap-3"
+  >
+    <img
+      class="w-28 pb-5"
+      src="../../../../assets/images/jpg/SII_logo.jpg"
+      alt=""
+    />
+    <div class="font-semibold text-2xl">Bienvenue sur HRa Space !</div>
+    <div class="text-sm">Please enter your details</div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-3">
+        <app-textfield
+          [inputForm]="loginForm"
+          inputId="email"
+          inputBorder="outlined"
+          prefixIcon="alternate_email"
+          placeholder="Email"
+        />
+
+        <app-textfield
+          [inputForm]="loginForm"
+          inputId="password"
+          inputBorder="outlined"
+          prefixIcon="lock"
+          type="password"
+          placeholder="Password"
+        />
+
+    
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </form>
+  </div>
+</div>
