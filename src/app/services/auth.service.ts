@@ -20,7 +20,7 @@ export class AuthService {
   //         // .shareReplay();
   // }
   isAuthenticated = () => {
-    return false;
+    return true;
   }
 
   refreshToken = async () => {

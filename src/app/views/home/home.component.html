@@ -1,7 +1,97 @@
-<div
-    class="size-full flex justify-center"
->
-    <p>home works!</p>
+<div class="h-full flex flex-row overflow-auto bg-primary-100">
 
+
+    <!--    SIDE BAR  -->
+
+  <div class="h-full w-60 bg-brown flex flex-col items-center bg-white">
+
+    <div class="w-72 flex flex-col items-center justify-center h-24">
+      <img src="../../../assets/images/jpg/SII_logo.jpg" alt="" class="h-16">
+    </div>
+
+    <div class="w-full flex flex-col items-center p-2 space-y-2 overflow-auto">
+      
+      <div class="w-full rounded-md bg-green-100 p-2 flex flex-col items-center gap-1">
+        <div class="text-lg font-medium text-primary-800">Collaborateur</div>
+        <hr class="w-full border-primary-700">
+        <ng-container *ngFor="let sidebarItem of sidebarItemsEmployees">
+          <app-sidebar-item
+            class="w-full focus:outline-none"
+            [selected]="this.router.url === sidebarItem.path"
+            [label]="sidebarItem.label"
+            [icon]="sidebarItem.icon"
+            [routerLink]="sidebarItem.path"
+            textColor="text-primary-700"
+            bgColor="bg-white"
+            bgColorHover="bg-primary-400"
+          ></app-sidebar-item>
+          
+        </ng-container>
+      </div>
+
+      <div class="w-full rounded-md bg-orange-100 p-2 flex flex-col items-center gap-1">
+        <div class="text-lg font-medium text-primary-800">Mes données</div>
+        <hr class="w-full border-primary-700">
+        <ng-container *ngFor="let sidebarItem of sidebarItemsDatas">
+          <app-sidebar-item
+            class="w-full focus:outline-none"
+            [selected]="this.router.url === sidebarItem.path"
+            [label]="sidebarItem.label"
+            [icon]="sidebarItem.icon"
+            [routerLink]="sidebarItem.path"
+            textColor="text-primary-700"
+            bgColor="bg-white"
+            bgColorHover="bg-primary-400"
+          ></app-sidebar-item>
+          
+        </ng-container>
+      </div>
+
+      <div class="w-full rounded-md bg-yellow-100 p-2 flex flex-col items-center gap-1">
+        <div class="text-lg font-medium text-primary-800">Mes absences</div>
+        <hr class="w-full border-primary-700">
+        <ng-container *ngFor="let sidebarItem of sidebarItemsAbsences">
+          <app-sidebar-item
+            class="w-full focus:outline-none"
+            [selected]="this.router.url === sidebarItem.path"
+            [label]="sidebarItem.label"
+            [icon]="sidebarItem.icon"
+            [routerLink]="sidebarItem.path"
+            textColor="text-primary-700"
+            bgColor="bg-white"
+            bgColorHover="bg-primary-400"
+          ></app-sidebar-item>
+          
+        </ng-container>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <div class="size-full flex flex-col overflow-auto">
+    
+    <!-- TOP BAR -->
+    <div class="w-full bg-white flex flex-row items-center h-24">
+      <div class="py-6 flex flex-col w-full font-bold text-2xl text-primary-700 select-none">
+        HRa Suite 7
+      </div>
+    </div>
+    
+
+  <!--  CONTENT-->
+    <div class="flex-1 bg-gray flex flex-col overflow-auto">
+      <div class="px-6 pt-6">
+        <div class="flex flex-row justify-between text-black text-4xl font-bold mb-4 select-none">
+          <div>{{getTitle()}}</div>
+        </div>
+        <div class="bg-black w-full h-px opacity-30"></div>
+      </div>
+      <div class="overflow-auto p-4 h-full">
+        <ng-content></ng-content>
+      </div>
+    </div>
+
+
+  </div>
 </div>
-
