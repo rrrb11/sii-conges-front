@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-
 @Component({
   selector: 'app-button',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  styleUrl: './button.component.css',
 })
 export class ButtonComponent implements OnInit {
+
   @Input()
   title: string | undefined;
 
@@ -28,6 +28,9 @@ export class ButtonComponent implements OnInit {
 
   @Input()
   textColor: string | undefined = 'primary-contrast';
+
+  @Input()
+  type: string | undefined;
 
   ngOnInit(): void {
   }

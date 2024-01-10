@@ -9,13 +9,14 @@
     />
     <div class="font-semibold text-2xl">Bienvenue sur HRa Space !</div>
     <div class="text-sm">Please enter your details</div>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-3">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-3 items-center">
         <app-textfield
           [inputForm]="loginForm"
           inputId="email"
           inputBorder="outlined"
           prefixIcon="alternate_email"
           placeholder="Email"
+          class="w-full"
         />
 
         <app-textfield
@@ -25,10 +26,16 @@
           prefixIcon="lock"
           type="password"
           placeholder="Password"
+          class="w-full"
         />
 
+        <app-button 
+        type="submit" 
+        title="Login"
+        class="w-full"
+        ></app-button>
     
-        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        <!-- <button type="submit" [disabled]="loginForm.invalid">Login</button> -->
       </form>
   </div>
 </div>

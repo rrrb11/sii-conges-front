@@ -1,22 +1,17 @@
 <button
-  class="flex flex-row items-center p-2
-border-none focus:outline-none font-bold hover:shadow-lg"
-  [ngClass]="
-  'bg-'+color+' '+
-  'text-'+textColor+' '+
-  classes
-  "
+  class="flex flex-row items-center justify-center p-2 border-none focus:outline-none 
+  font-semibold hover:bg-primary-600 bg-primary-700 rounded-xl size-full text-white"
   [routerLink]="goTo"
+  [type]="type"
 >
-  <!-- <mat-icon
-    *ngIf="icon"
-    [ngClass]="
-    'text-'+textColor+' '+
-    (title?'mr-2 ':'')
-    "
-    aria-hidden="false"
-  >{{icon}}</mat-icon> -->
-  <span>
+
     {{title}}
-  </span>
 </button>
+<mat-icon
+*ngIf="icon"
+[ngClass]="
+'text-'+textColor+' '+
+(title?'mr-2 ':'')
+"
+aria-hidden="false"
+>{{icon}}</mat-icon>

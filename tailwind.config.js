@@ -10,6 +10,20 @@ module.exports = {
         white: "#FFFFFF",
         black: {
         },
+        'primary': {
+          '50': '#f0f8ff',
+          '100': '#dfefff',
+          '200': '#b9e0fe',
+          '300': '#7bc9fe',
+          '400': '#34adfc',
+          '500': '#0a93ed',
+          '600': '#0073cb',
+          '700': '#005aa1',
+          '800': '#054f87',
+          '900': '#0a4170',
+          '950': '#07294a',
+      },
+      
       },
       outline: {
         transparent: '1px solid transparent',
