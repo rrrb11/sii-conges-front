@@ -3,17 +3,17 @@
 
     <!--    SIDE BAR  -->
 
-  <div class="h-full w-60 bg-brown flex flex-col items-center bg-white">
+  <div class="h-full w-min lg:w-60 bg-brown flex flex-col items-center bg-white">
 
-    <div class="w-72 flex flex-col items-center justify-center h-24">
-      <img src="../../../assets/images/jpg/SII_logo.jpg" alt="" class="h-16">
+    <div class="lg:w-72 flex flex-col items-center justify-center h-24">
+      <img routerLink="" src="../../../assets/images/jpg/SII_logo.jpg" alt="" class="h-8 lg:h-16 cursor-pointer">
     </div>
 
-    <div class="w-full flex flex-col items-center p-2 space-y-2 overflow-auto">
+    <div class="w-full flex flex-1 flex-col items-center p-2 space-y-2 overflow-auto">
       
       <div class="w-full rounded-md bg-green-100 p-2 flex flex-col items-center gap-1">
-        <div class="text-lg font-medium text-primary-800">Collaborateur</div>
-        <hr class="w-full border-primary-700">
+        <div class="hidden lg:flex text-lg font-medium text-primary-800">Collaborateur</div>
+        <hr class="hidden lg:flex w-full border-primary-700">
         <ng-container *ngFor="let sidebarItem of sidebarItemsEmployees">
           <app-sidebar-item
             class="w-full focus:outline-none"
@@ -30,8 +30,8 @@
       </div>
 
       <div class="w-full rounded-md bg-orange-100 p-2 flex flex-col items-center gap-1">
-        <div class="text-lg font-medium text-primary-800">Mes données</div>
-        <hr class="w-full border-primary-700">
+        <div class="hidden lg:flex text-lg font-medium text-primary-800">Mes données</div>
+        <hr class="hidden lg:flex w-full border-primary-700">
         <ng-container *ngFor="let sidebarItem of sidebarItemsDatas">
           <app-sidebar-item
             class="w-full focus:outline-none"
@@ -48,8 +48,8 @@
       </div>
 
       <div class="w-full rounded-md bg-yellow-100 p-2 flex flex-col items-center gap-1">
-        <div class="text-lg font-medium text-primary-800">Mes absences</div>
-        <hr class="w-full border-primary-700">
+        <div class="hidden lg:flex text-lg font-medium text-primary-800">Mes absences</div>
+        <hr class="hidden lg:flex w-full border-primary-700">
         <ng-container *ngFor="let sidebarItem of sidebarItemsAbsences">
           <app-sidebar-item
             class="w-full focus:outline-none"
@@ -73,7 +73,7 @@
     
     <!-- TOP BAR -->
     <div class="w-full bg-white flex flex-row items-center h-24">
-      <div class="py-6 flex flex-col w-full font-bold text-2xl text-primary-700 select-none">
+      <div class="flex flex-col w-full font-bold text-2xl text-primary-700 select-none">
         HRa Suite 7
       </div>
     </div>
@@ -81,14 +81,15 @@
 
   <!--  CONTENT-->
     <div class="flex-1 bg-gray flex flex-col overflow-auto">
-      <div class="px-6 pt-6">
-        <div class="flex flex-row justify-between text-black text-4xl font-bold mb-4 select-none">
+      <div class="px-6 pt-6" *ngIf="getTitle()!=''">
+        <div class="flex flex-row justify-between text-primary-700 text-4xl font-bold mb-4 select-none">
           <div>{{getTitle()}}</div>
         </div>
         <div class="bg-black w-full h-px opacity-30"></div>
       </div>
       <div class="overflow-auto p-4 h-full">
-        <ng-content></ng-content>
+        <!-- <ng-content></ng-content> -->
+        <router-outlet></router-outlet>
       </div>
     </div>
 

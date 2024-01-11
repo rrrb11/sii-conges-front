@@ -1,18 +1,35 @@
 <div
-  [class]="'group w-full cursor-pointer flex select-none text-md flex-row items-center rounded-lg px-2 py-1 font-medium border border-primary-200 ' +
+  [class]="'hidden lg:flex group w-full cursor-pointer  select-none text-md flex-row items-center rounded-lg px-2 py-1 font-medium border border-primary-200 ' +
   ' ' + 'hover:' + bgColorHover + ' hover:' + textColorHover
   "
   [ngClass]="
     selected?' ' + bgColorHover + ' ' + textColorHover +' shadow-md':'' + bgColor + ' ' + textColor
   "
 >
-  <span class="flex gap-2 flex-row items-center">
+  <span class="flex flex-row items-center">
+    <mat-icon
+      *ngIf="icon"
+      [class]="'pr-8 ' + '' + textColor + ' group-hover:' + textColorHover "
+      aria-hidden="false"
+    >{{icon}}</mat-icon>
+    <span class="">{{label}}</span>
+  </span>
+
+</div>
+
+<div
+  [class]="'lg:hidden group cursor-pointer flex select-none text-md flex-row items-center rounded-lg px-2 py-2 font-medium border border-primary-200 w-min' +
+  ' ' + 'hover:' + bgColorHover + ' hover:' + textColorHover
+  "
+  [ngClass]="
+    selected?' ' + bgColorHover + ' ' + textColorHover +' shadow-md':'' + bgColor + ' ' + textColor
+  "
+  [matTooltip]="label!"
+  matTooltipPosition="right"
+>
     <mat-icon
       *ngIf="icon"
       [class]="'' + '' + textColor + ' group-hover:' + textColorHover "
       aria-hidden="false"
     >{{icon}}</mat-icon>
-    <span>{{label}}</span>
-  </span>
-
 </div>

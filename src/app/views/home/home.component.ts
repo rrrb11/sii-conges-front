@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
-import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SidebarItemComponent } from '../../components/sidebar-item/sidebar-item.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonComponent, CommonModule, SidebarItemComponent, RouterLink],
+  imports: [ButtonComponent, CommonModule, SidebarItemComponent, RouterLink, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -58,7 +58,7 @@ export class HomeComponent {
   sidebarItemsDatas = [
     {
       label: 'Données administratives',
-      path: '/administrative-data',
+      path: '/administrative-datas',
       icon: 'data_usage',
       // access: ['ADM', 'GUEST'],
     },
