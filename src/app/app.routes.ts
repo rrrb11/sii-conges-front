@@ -15,13 +15,13 @@ export const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent, data: { title:''} },
             { path: 'administrative-datas', component: AdministrativeDatasComponent, data: { title: 'Données administratives'} },
-        ]
-        // canActivate: [AuthGuard],
+        ],
+        canActivate: [AuthGuard],
     },
     { 
         path: 'login', 
         component: LoginComponent, 
-        // canActivate: [ConnectedGuard] 
+        canActivate: [ConnectedGuard] 
     },
     { 
         path: '**', 

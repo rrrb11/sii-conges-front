@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ButtonComponent } from '../../../components/button/button.component';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserClass } from '../../../classes/user.class';
 
 @Component({
   selector: 'app-login',
@@ -37,15 +38,20 @@ export class LoginComponent {
     console.log(this.loginForm?.value);
     const val = this.loginForm.value;
 
-        // if (val.email && val.password) {
-        //     this.authService.login(this.loginForm.value)?
-        //         .subscribe(
-        //             () => {
-        //                 console.log("User is logged in");
-        //                 this.router.navigateByUrl('/');
-        //             }
-        //         );
-        // }
+        if (val.email && val.password) {
+            this.authService.login(this.loginForm.value)
+              ?.then(response => {
+                console.log(response);
+                const { accessToken, refreshToken, email, firstname, lastname } = response.data;
+                UserClass.setUser({accessToken, refreshToken, email, firstname, lastname})
+                this.router.navigateByUrl('/');
+              })
+              .catch((error) => {
+                console.log(error.response.data)
+                // toast.error(error.response.data.message);
+              });
+
+        }
     // Add logic to authenticate the user
   }
 }

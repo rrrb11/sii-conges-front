@@ -3,7 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders, Http
 import { Observable, from, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service'; // Import your authentication service here
-import { UserClass } from '../components/classes/user.class';
+import { UserClass } from '../classes/user.class';
 import { Router } from '@angular/router';
 
 @Injectable()

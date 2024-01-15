@@ -1,4 +1,4 @@
-import { User as UserModel } from "../../models/user";
+import { User as UserModel } from "../models/user";
 
 export class UserClass {
     static setUser = (user: UserModel) => {

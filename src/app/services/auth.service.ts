@@ -3,24 +3,28 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { UserAuth } from '../models/user-auth';
 import axios from 'axios';
-import { UserClass } from '../components/classes/user.class';
+import { UserClass } from '../classes/user.class';
 import { environment } from '../../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { User as UserModel } from "../models/user";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
     
-  // login(email:string, password:string ) {
-  //     return this.http.post<User>('/api/login', {email, password});
-  //         // this is just the HTTP call, 
-  //         // we still need to handle the reception of the token
-  //         // .shareReplay();
-  // }
   isAuthenticated = () => {
-    return true;
+    let user = '{}' as UserModel;
+    if (isPlatformBrowser(this.platformId)) {
+      user = UserClass.getUser();
+    }
+    if (!(Object.keys(user).length === 0)) {
+      return true;
+    }
+    return false;
   }
 
   refreshToken = async () => {
